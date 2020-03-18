@@ -7,4 +7,5 @@ gem 'aws-sdk-dynamodb', '~> 1'
 group :test do
   gem "test-unit"
   gem "mocha"
+  gem 'rubocop', require: false
 end

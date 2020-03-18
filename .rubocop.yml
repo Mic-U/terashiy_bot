@@ -1,0 +1,20 @@
+AllCops:
+  Include:
+    - "terashiy_bot/**/*.rb"
+  DisplayCopNames: true
+Style/AsciiComments:
+  Enabled: false
+Style/DotPosition:
+  EnforcedStyle: trailing
+Style/EmptyElse:
+  EnforcedStyle: empty
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+tyle/HashTransformValues:
+  Enabled: true
+Lint/UnderscorePrefixedVariableName:
+  Enabled: false
+Lint/UnusedMethodArgument:
+  Enabled: false

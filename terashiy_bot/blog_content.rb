@@ -1,24 +1,29 @@
+# frozen_string_literal: true
+
 require 'httparty'
 require 'nokogiri'
 
+# HTML Parser using Nokogiri
 class HtmlParserIncluded < HTTParty::Parser
   def html
     Nokogiri::HTML(body)
   end
 end
 
+# HTML Page
 class Page
   include HTTParty
   parser HtmlParserIncluded
 end
 
-def get_latest_post
+def latest_post
   blog_url = 'http://blog.livedoor.jp/terashimatakuma/'
 
   page = Page.get(blog_url)
-  latest_post = page.css("#blog .autopagerize_page_element .fullbody:nth-of-type(1)")
+  selector = '#blog .autopagerize_page_element .fullbody:nth-of-type(1)'
+  latest_post = page.css(selector)
   {
-    date: latest_post.css(".datebody .date").text,
-    title: latest_post.css(".titlebody .title").text
+    date: latest_post.css('.datebody .date').text,
+    title: latest_post.css('.titlebody .title').text
   }
 end
