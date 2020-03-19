@@ -12,9 +12,14 @@ Style/HashEachMethods:
   Enabled: true
 Style/HashTransformKeys:
   Enabled: true
-tyle/HashTransformValues:
+Style/HashTransformValues:
   Enabled: true
 Lint/UnderscorePrefixedVariableName:
   Enabled: false
 Lint/UnusedMethodArgument:
   Enabled: false
+Layout/FirstHashElementIndentation:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: true
+  Max: 20

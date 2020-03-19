@@ -2,13 +2,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
   terashiy_bot
-
-  Sample SAM Template for terashiy_bot
-
-Globals:
-  Function:
-    Timeout: 3
-
+  Sample SAM Template for terashiy_botz
 Resources:
   BotFunction:
     Type: AWS::Serverless::Function
@@ -25,18 +19,50 @@ Resources:
           Type: Schedule
           Properties:
             Schedule: cron(30 9 * * ? *)
+      Role: !GetAtt FunctionRole.Arn
+  FunctionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: "Allow"
+            Action: "sts:AssumeRole"
+            Principal:
+              Service: lambda.amazonaws.com
+      Policies:
+        - PolicyName: !Sub "policy-${AWS::StackName}"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - "dynamodb:GetItem"
+                  - "dynamodb:PutItem"
+                Resource:
+                  - !Sub "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${DDBTable}"
+        - PolicyName: !Sub AllowPutLogs-${AWS::StackName}
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              -
+                Effect: "Allow"
+                Action:
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                  - logs:CreateLogGroup
+                Resource: !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*'
   DDBTable:
-    DynamoDBTable:
-      Type: AWS::DynamoDB::Table
-      Properties: 
-        AttributeDefinitions: 
-          - AttributeName: id
-            AttributeType: S
-        KeySchema: 
-          - AttributeName: id
-            KeyType: HASH
-        ProvisionedThroughput: 
-          ReadCapacityUnits: 5
-          WriteCapacityUnits: 5
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
 
 
