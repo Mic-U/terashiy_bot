@@ -17,7 +17,9 @@ class DDBConnector
       table_name: table_name
     })
     if resp.item.nil?
-      Time.now
+      now = Time.now
+      update_date(table_name: table_name, id: id, new_date: now)
+      now
     else
       Time.at(resp.item['latest_date'])
     end
