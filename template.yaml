@@ -28,15 +28,15 @@ Resources:
   DDBTable:
     DynamoDBTable:
       Type: AWS::DynamoDB::Table
-      Properties: 
-        AttributeDefinitions: 
+      Properties:
+        AttributeDefinitions:
           - AttributeName: id
             AttributeType: S
-        KeySchema: 
+        KeySchema:
           - AttributeName: id
             KeyType: HASH
-        ProvisionedThroughput: 
-          ReadCapacityUnits: 5
-          WriteCapacityUnits: 5
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
 
 

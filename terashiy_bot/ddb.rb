@@ -22,4 +22,14 @@ class DDBConnector
       Time.at(resp.item['latest_date'])
     end
   end
+
+  def update_date(table_name:, id:, new_date:)
+    @dynamo_db.put_item({
+      item: {
+        'id' => id,
+        'latest_date' => new_date
+      },
+      table_name: table_name
+    })
+  end
 end
