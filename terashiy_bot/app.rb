@@ -9,7 +9,7 @@ require_relative './ddb'
 @table_name = ENV['DYNAMO_TABLE']
 
 def lambda_handler(event:, context:)
-  post = latest_post(@blog_url)
+  post = latest_post(blog_url: @blog_url)
 
   ddb = DDBConnector.new
   latest_date = ddb.latest_date(table_name: @table_name, id: @blog_url)

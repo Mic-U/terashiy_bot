@@ -27,7 +27,7 @@ class DDBConnector
     @dynamo_db.put_item({
       item: {
         'id' => id,
-        'latest_date' => new_date
+        'latest_date' => new_date.to_i
       },
       table_name: table_name
     })
