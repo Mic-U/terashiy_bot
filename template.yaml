@@ -19,6 +19,7 @@ Resources:
           Type: Schedule
           Properties:
             Schedule: cron(30 9 * * ? *)
+      Role: !GetAtt FunctionRole.Arn
   FunctionRole:
     Type: AWS::IAM::Role
     Properties:
@@ -40,6 +41,17 @@ Resources:
                   - "dynamodb:PutItem"
                 Resource:
                   - !Sub "arn:aws:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${DDBTable}"
+        - PolicyName: !Sub AllowPutLogs-${AWS::StackName}
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              -
+                Effect: "Allow"
+                Action:
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                  - logs:CreateLogGroup
+                Resource: !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*'
   DDBTable:
     Type: AWS::DynamoDB::Table
     Properties:
