@@ -3,5 +3,6 @@ source "https://rubygems.org"
 gem "httparty"
 gem "nokogiri"
 gem 'aws-sdk-dynamodb', '~> 1'
+gem 'dotenv'
 
 ruby '~> 2.7.0'
