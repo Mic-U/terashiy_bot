@@ -2,6 +2,9 @@
 
 ![Ruby](https://github.com/Mic-U/terashiy_bot/workflows/Ruby/badge.svg?branch=master)
 
+This bot checks [the blog of Takuma Terashima](http://blog.livedoor.jp/terashimatakuma/) periodically.
+If this bot detect new article, notify it via LINE.
+
 ## How to use
 
 ### 1. Issue LINE Messaging API Token
