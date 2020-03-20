@@ -11,6 +11,7 @@ class LineMessanger
 
   def send(blog_title:, url:)
     messages = convert_message(blog_title: blog_title, url: url)
+    puts "messages: #{messages}"
     HTTParty.post(@line_url,
                   body: messages.to_json,
                   headers: http_header)
