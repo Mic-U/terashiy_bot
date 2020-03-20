@@ -42,4 +42,5 @@ $ sam deploy --template-file .aws-sam/build/packaged.yaml --stack-name <STACK_NA
 ```bash
 $ bundle install
 $ bundle exec rubocop
+$ bundle exec rspec
 ```

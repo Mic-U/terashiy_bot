@@ -7,7 +7,7 @@ require_relative './blog_content'
 require_relative './ddb'
 require_relative './messanger'
 
-Dotenv.load!
+Dotenv.load! "#{__dir__}/.env"
 
 def lambda_handler(event:, context:)
   blog_url = 'http://blog.livedoor.jp/terashimatakuma/'

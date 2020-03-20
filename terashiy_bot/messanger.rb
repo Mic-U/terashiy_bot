@@ -13,10 +13,14 @@ class LineMessanger
     messages = convert_message(blog_title: blog_title, url: url)
     HTTParty.post(@line_url,
                   body: messages.to_json,
-                  headers: {
-                    'Content-Type' => 'application/json',
-                    'Authorization' => "Bearer #{@token}"
-                  })
+                  headers: http_header)
+  end
+
+  def http_header
+    {
+      'Content-Type' => 'application/json',
+      'Authorization' => "Bearer #{@token}"
+    }
   end
 
   def convert_message(blog_title:, url:)
@@ -24,7 +28,7 @@ class LineMessanger
       messages: [
         {
           type: 'text',
-          text: "【新着】 #{blog_title} \n #{url}"
+          text: "【新着】 #{blog_title}\n#{url}"
         }
       ]
     }
