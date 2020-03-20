@@ -1,5 +1,5 @@
 BUCKET = bucket
-STACK = terashiy_bot
+STACK = terashiy-bot
 
 build:
 	cp -f Gemfile ./terashiy_bot/Gemfile
