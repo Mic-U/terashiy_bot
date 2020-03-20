@@ -22,4 +22,6 @@ jobs:
     - name: Lint check with Rubocop
       run: bundle exec rubocop
     - name: Test with RSpec
-      run: bundle exec rspec
+      run: |
+        echo "LINE_ACCESS_TOKEN=TEST" > terashiy_bot/.env
+        bundle exec rspec

@@ -4,8 +4,6 @@ AllCops:
   DisplayCopNames: true
 Style/AsciiComments:
   Enabled: false
-Style/DotPosition:
-  EnforcedStyle: trailing
 Style/EmptyElse:
   EnforcedStyle: empty
 Style/HashEachMethods:
@@ -18,6 +16,8 @@ Lint/UnderscorePrefixedVariableName:
   Enabled: false
 Lint/UnusedMethodArgument:
   Enabled: false
+Layout/DotPosition:
+  EnforcedStyle: trailing
 Layout/FirstHashElementIndentation:
   Enabled: false
 Metrics/MethodLength:
