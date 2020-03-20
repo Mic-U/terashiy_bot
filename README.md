@@ -26,15 +26,14 @@ It may go wrong when you install with `bundle install` on your local machine, be
 So, I recommend you to use `sam build --use-container` command. This command installs dependencies in docker container.
 
 ```sh
-# Output to .aws-sam/build directory
-$ sam build --use-container
+$ make build
 ```
 
 ### 4. Deploy
 
 ```sh
-$ sam package --template-file .aws-sam/build/template.yaml --output-template-file .aws-sam/build/packaged.yaml --s3-bucket <BUCKET_NAME>
-$ sam deploy --template-file .aws-sam/build/packaged.yaml --stack-name <STACK_NAME> --capabilities CAPABILITY_IAM
+$ make package BUCKET=<BUCKET_NAME>
+$ make deploy STACK=<STACK_NAME>
 ```
 
 ## Testing
