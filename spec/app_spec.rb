@@ -23,4 +23,10 @@ RSpec.describe 'app.rb' do
       end
     end
   end
+
+  describe 'send_message' do
+    it 'raise a Error' do
+      expect{send_message(blog_title: 'title', url: 'url', token: 'text')}.to raise_error(RuntimeError)
+    end
+  end
 end

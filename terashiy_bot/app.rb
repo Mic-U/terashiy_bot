@@ -23,7 +23,8 @@ def lambda_handler(event:, context:)
     return
   end
 
-  send_message(blog_title: post[:title], url: blog_url)
+  token = ENV['LINE_ACCESS_TOKEN']
+  send_message(blog_title: post[:title], url: blog_url, token: token)
   ddb.update_date(table_name: table_name, id: blog_url, new_date: post[:date])
 end
 
@@ -31,8 +32,10 @@ def older_than_latest_date?(post_date:, latest_date:)
   post_date <= latest_date
 end
 
-def send_message(blog_title:, url:)
-  token = ENV['LINE_ACCESS_TOKEN']
-  messanger = LineMessanger.new(token)
-  messanger.send(blog_title, url)
+def send_message(blog_title:, url:, token:)
+  puts 'sending messages...'
+  messanger = LineMessanger.new(token: token)
+  response = messanger.send(blog_title: blog_title, url: url)
+  puts "response: #{response}"
+  raise 'Sending message failed.' unless response.success?
 end

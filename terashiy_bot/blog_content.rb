@@ -24,6 +24,7 @@ def latest_post(blog_url:)
 
   # for example 2020年02月16日
   date_text = latest_post.css('.datebody .date').text
+  puts "date_text: #{date_text}"
   {
     date: Time.strptime(date_text, '%Y年%m月%d日'),
     title: latest_post.css('.titlebody .title').text

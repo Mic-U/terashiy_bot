@@ -17,6 +17,7 @@ class DDBConnector
       table_name: table_name
     })
     if resp.item.nil?
+      puts 'No Item'
       now = Time.now
       update_date(table_name: table_name, id: id, new_date: now)
       now
