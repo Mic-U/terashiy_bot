@@ -2,9 +2,12 @@
 
 require 'json'
 require 'time'
+require 'dotenv'
 require_relative './blog_content'
 require_relative './ddb'
 require_relative './messanger'
+
+Dotenv.load!
 
 def lambda_handler(event:, context:)
   blog_url = 'http://blog.livedoor.jp/terashimatakuma/'
