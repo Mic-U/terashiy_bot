@@ -3,9 +3,12 @@
 require 'json'
 require 'time'
 require 'dotenv'
+
 require_relative './blog_content'
 require_relative './ddb'
 require_relative './messanger'
+
+require 'aws-xray-sdk/lambda'
 
 Dotenv.load! "#{__dir__}/.env"
 
