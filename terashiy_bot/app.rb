@@ -25,7 +25,7 @@ def lambda_handler(event:, context:)
 end
 
 def new_post?(ddb:, id:, post_date:)
-  latest_date = ddb.latest_date(id: blog_url)
+  latest_date = ddb.latest_date(id: id)
   puts "latest_date #{latest_date}"
   older_than_latest_date?(post_date: post_date, latest_date: latest_date)
 end
