@@ -9,6 +9,7 @@ Resources:
     Properties:
       CodeUri: terashiy_bot/
       Handler: app.lambda_handler
+      MemorySize: 320
       Runtime: ruby2.7
       Timeout: 120
       Tracing: Active
