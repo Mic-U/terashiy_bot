@@ -2,6 +2,7 @@ AllCops:
   Include:
     - "terashiy_bot/**/*.rb"
   DisplayCopNames: true
+  NewCops: enable
 Style/AsciiComments:
   Enabled: false
 Style/EmptyElse:
