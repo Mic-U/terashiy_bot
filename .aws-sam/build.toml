@@ -5,6 +5,7 @@
 codeuri = "terashiy_bot/"
 runtime = "ruby2.7"
 source_md5 = ""
+packagetype = "Zip"
 functions = ["BotFunction"]
 
 [layer_build_definitions]
