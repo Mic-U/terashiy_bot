@@ -2,9 +2,9 @@ BUCKET = bucket
 STACK = terashiy-bot
 
 build:
-	cp -f Gemfile ./terashiy_bot/Gemfile
+	cp -f Gemfile* ./terashiy_bot/
 	sam build --use-container
-	rm ./terashiy_bot/Gemfile
+	rm -f ./terashiy_bot/Gemfile*
 package:
 	sam package --template-file .aws-sam/build/template.yaml --output-template-file .aws-sam/build/packaged.yaml --s3-bucket ${BUCKET}
 deploy:

@@ -242,7 +242,7 @@ $RECYCLE.BIN/
 */build/*
 .bundle
 **/vendor/*
-terashiy_bot/Gemfile
+terashiy_bot/Gemfile*
 
 packaged.yml
 
