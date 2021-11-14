@@ -245,6 +245,7 @@ $RECYCLE.BIN/
 terashiy_bot/Gemfile*
 
 packaged.yml
+.aws-sam
 
 spec/examples.txt
 # End of https://www.gitignore.io/api/osx,linux,python,windows,pycharm,visualstudiocode
