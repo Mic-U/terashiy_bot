@@ -16,7 +16,7 @@ def lambda_handler(event:, context:)
   post = latest_post(blog_url: blog_url)
   puts "post: #{post}"
 
-  ddb = DDBConnector.new(table_name: ENV.fetch('DYNAMO_TABLE')
+  ddb = DDBConnector.new(table_name: ENV.fetch('DYNAMO_TABLE'))
   return if new_post?(ddb: ddb, id: blog_url, post_date: post[:date])
 
   token = ENV.fetch('LINE_ACCESS_TOKEN')
