@@ -3,6 +3,7 @@ AllCops:
     - "terashiy_bot/**/*.rb"
   DisplayCopNames: true
   NewCops: enable
+  TargetRubyVersion: 2.7
 Style/AsciiComments:
   Enabled: false
 Style/EmptyElse:
